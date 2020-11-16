@@ -2,6 +2,8 @@ package exodecorateur_angryballs.maladroit.newModele;
 
 import java.util.Vector;
 
+import mesmaths.cinematique.Collisions;
+
 /**
  * Decoration pour une bille
  * Représente la collision 6: bloquée par un bord
@@ -17,15 +19,13 @@ public class CollisionBloque extends DecoratorBille {
 
 	@Override
 	public void gestionAccélération(Vector<Bille> billes) {
-		// TODO Auto-generated method stub
-		
+		this.billeDecorated.gestionAccélération(billes);
 	}
 
 	@Override
-	public void collisionContour(double abscisseCointHautGauche, double ordonnéeCointHautGauche, double largeur,
-			double hauteur) {
-		// TODO Auto-generated method stub
-		
+	public void collisionContour(double abscisseCointHautGauche, double ordonnéeCointHautGauche, double largeur, double hauteur) {
+		Collisions.collisionBilleContourAvecArretHorizontal(this.billeDecorated.getPosition(), this.billeDecorated.getRayon(), this.billeDecorated.getVitesse(), abscisseCointHautGauche, largeur);
+		Collisions.collisionBilleContourAvecArretVertical(this.billeDecorated.getPosition(), this.billeDecorated.getRayon(), this.billeDecorated.getVitesse(), ordonnéeCointHautGauche, hauteur);
 	}
 
 }

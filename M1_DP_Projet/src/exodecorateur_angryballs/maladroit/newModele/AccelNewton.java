@@ -2,6 +2,8 @@ package exodecorateur_angryballs.maladroit.newModele;
 
 import java.util.Vector;
 
+import exodecorateur_angryballs.maladroit.modele.OutilsBille;
+
 /**
  * Decoration pour une bille
  * Représente l'accélération 2: attraction universelle due à la force de Newton
@@ -17,15 +19,13 @@ public class AccelNewton extends DecoratorBille {
 
 	@Override
 	public void gestionAccélération(Vector<Bille> billes) {
-		// TODO Auto-generated method stub
-		
+		this.billeDecorated.gestionAccélération(billes); //remise à zéro du vecteur accélération
+		this.billeDecorated.getAccélération().ajoute(OutilsBille.gestionAccélérationNewton(this.billeDecorated, billes)); //contribution de l'accélération due à l'attraction des autres billes
 	}
 
 	@Override
-	public void collisionContour(double abscisseCointHautGauche, double ordonnéeCointHautGauche, double largeur,
-			double hauteur) {
-		// TODO Auto-generated method stub
-		
+	public void collisionContour(double abscisseCointHautGauche, double ordonnéeCointHautGauche, double largeur, double hauteur) {
+		this.billeDecorated.collisionContour(abscisseCointHautGauche, ordonnéeCointHautGauche, largeur, hauteur);
 	}
 
 }

@@ -56,14 +56,34 @@ public class NewTestAngryBalls {
 	v4 = Vecteur.créationAléatoire(-vMax, -vMax, vMax, vMax);
 
 	//--------------- ici commence la partie à changer ---------------------------------
-
-	Bille B = new BilleNormale(p0, rayon, v0, Color.red); //création d'une bille normale rouge
-	B = new CollisionRebond(B); //on décore cette bille avec la collision rebond
 	
-	Bille G = new BilleNormale(p1, rayon, v1, Color.green); //création d'une bille normale verte
 	
-	billes.add(B); //on ajoute la bille à la liste
-	billes.add(G);
+	Bille billeRouge = new BilleNormale(p0, rayon, v0, Color.red); //création d'une bille normale rouge
+	billeRouge = new CollisionRebond(billeRouge); //on décore cette bille avec la collision rebond
+	
+	Bille billeJaune = new BilleNormale(p1, rayon, v1, Color.yellow);
+	billeJaune = new AccelPesanteur(billeJaune, new Vecteur(0, 0.001));
+	billeJaune = new AccelFrottement(billeJaune);
+	billeJaune = new CollisionRebond(billeJaune);
+	
+	Bille billeVerte = new BilleNormale(p2, rayon, v2, Color.green);
+	billeVerte = new AccelNewton(billeVerte);
+	billeVerte = new AccelFrottement(billeVerte);
+	billeVerte = new CollisionRebond(billeVerte);
+	
+	Bille billeBleue = new BilleNormale(p3, rayon, v3, Color.cyan);
+	billeBleue = new CollisionPasseMuraille(billeBleue);
+	
+	Bille billeNoire = new BilleNormale(p4, rayon, v4, Color.black); //création d'une bille normale verte
+	billeNoire = new AccelNewton(billeNoire); //on décore cette bille avec l'attraction due à la force de newton
+	billeNoire = new CollisionBloque(billeNoire); //on la décore également avec la collision bloquée
+	
+	//on ajoute les billes à la liste
+	billes.add(billeRouge);
+	billes.add(billeJaune);
+	billes.add(billeVerte);
+	billes.add(billeBleue);
+	billes.add(billeNoire);
 	
 	//---------------------- ici finit la partie à changer -------------------------------------------------------------
 
@@ -88,8 +108,9 @@ public class NewTestAngryBalls {
 	cadre.lancerBilles.addActionListener(écouteurBoutonLancer);             // pourrait être remplacé par Observable - Observer 
 	cadre.arrêterBilles.addActionListener(écouteurBoutonArrêter);           // pourrait être remplacé par Observable - Observer
 	
-	cadre.getBillard().addMouseListener(écouteurBille);
-	cadre.getBillard().addMouseMotionListener(écouteurBille);
+	//Tests bille attrapable
+	//cadre.getBillard().addMouseListener(écouteurBille);
+	//cadre.getBillard().addMouseMotionListener(écouteurBille);
 	
 
 
