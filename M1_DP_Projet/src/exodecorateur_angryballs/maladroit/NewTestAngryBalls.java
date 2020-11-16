@@ -60,7 +60,10 @@ public class NewTestAngryBalls {
 	Bille B = new BilleNormale(p0, rayon, v0, Color.red); //création d'une bille normale rouge
 	B = new CollisionRebond(B); //on décore cette bille avec la collision rebond
 	
+	Bille G = new BilleNormale(p1, rayon, v1, Color.green); //création d'une bille normale verte
+	
 	billes.add(B); //on ajoute la bille à la liste
+	billes.add(G);
 	
 	//---------------------- ici finit la partie à changer -------------------------------------------------------------
 
@@ -75,13 +78,19 @@ public class NewTestAngryBalls {
 	//----------------------- mise en place des écouteurs de boutons qui permettent de contrôler (un peu...) l'application -----------------
 
 	EcouteurBoutonLancer écouteurBoutonLancer = new EcouteurBoutonLancer(animationBilles);
-	EcouteurBoutonArreter écouteurBoutonArrêter = new EcouteurBoutonArreter(animationBilles); 
+	EcouteurBoutonArreter écouteurBoutonArrêter = new EcouteurBoutonArreter(animationBilles);
+	
+	EcouteurBille écouteurBille = new EcouteurBille(animationBilles);
 
 	//------------------------- activation des écouteurs des boutons et ça tourne tout seul ------------------------------
 
 
 	cadre.lancerBilles.addActionListener(écouteurBoutonLancer);             // pourrait être remplacé par Observable - Observer 
 	cadre.arrêterBilles.addActionListener(écouteurBoutonArrêter);           // pourrait être remplacé par Observable - Observer
+	
+	cadre.getBillard().addMouseListener(écouteurBille);
+	cadre.getBillard().addMouseMotionListener(écouteurBille);
+	
 
 
 

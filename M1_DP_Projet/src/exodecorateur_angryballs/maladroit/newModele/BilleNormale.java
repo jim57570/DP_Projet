@@ -28,7 +28,7 @@ public class BilleNormale extends Bille {
 	private static int prochaineClef = 0;
 
 	public static double ro = 1;        // masse volumique
-	
+		
 	/**
 	 * @param position
 	 * @param rayon
@@ -63,6 +63,14 @@ public class BilleNormale extends Bille {
 	public Vecteur getPosition() {
 		return this.position;
 	}
+	
+	/**
+	 * @return 
+	 */
+	public void setPosition(Vecteur position)
+	{
+		this.position = position;
+	}
 
 	/**
 	 * @return the rayon
@@ -76,6 +84,10 @@ public class BilleNormale extends Bille {
 	 */
 	public Vecteur getVitesse() {
 		return this.vitesse;
+	}
+	
+	public void setVitesse() {
+		this.vitesse = Vecteur.VECTEURNUL;
 	}
 
 	/**

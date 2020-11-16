@@ -27,12 +27,22 @@ public abstract class DecoratorBille extends Bille {
 		return this.billeDecorated.getPosition(); // par défaut la position du décorateur de l'objet est le même que la position de l'objet décoré
 		//cette méthode est donc récursive. Le cas terminal est le cas du dernier maillon : l'objet ordinaire
 	}
+	
+	@Override
+	public void setPosition(Vecteur position)
+	{
+		this.billeDecorated.setPosition(position);
+	}
 
 	@Override
 	public double getRayon() {
 		return this.billeDecorated.getRayon();
 	}
 
+	@Override
+	public void setVitesse() {
+		this.billeDecorated.setVitesse();
+	}
 	@Override
 	public Vecteur getVitesse() {
 		return this.billeDecorated.getVitesse();

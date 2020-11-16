@@ -18,8 +18,10 @@ import mesmaths.geometrie.base.Vecteur;
 public abstract class Bille {
 	
 	public abstract Vecteur getPosition();
+	public abstract void setPosition(Vecteur position);
 	public abstract double getRayon();
 	public abstract Vecteur getVitesse();
+	public abstract void setVitesse();
 	public abstract Vecteur getAccélération();
 	public abstract int getClef();
 	
