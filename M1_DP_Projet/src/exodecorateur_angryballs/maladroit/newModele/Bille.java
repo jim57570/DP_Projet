@@ -21,7 +21,7 @@ public abstract class Bille {
 	public abstract void setPosition(Vecteur position);
 	public abstract double getRayon();
 	public abstract Vecteur getVitesse();
-	public abstract void setVitesse();
+	public abstract void setVitesse(Vecteur vitesse);
 	public abstract Vecteur getAccélération();
 	public abstract int getClef();
 	

@@ -81,9 +81,9 @@ public class NewTestAngryBalls {
 	//on ajoute les billes à la liste
 	billes.add(billeRouge);
 	billes.add(billeJaune);
-	billes.add(billeVerte);
+	/*billes.add(billeVerte);
 	billes.add(billeBleue);
-	billes.add(billeNoire);
+	billes.add(billeNoire);*/
 	
 	//---------------------- ici finit la partie à changer -------------------------------------------------------------
 
@@ -109,8 +109,8 @@ public class NewTestAngryBalls {
 	cadre.arrêterBilles.addActionListener(écouteurBoutonArrêter);           // pourrait être remplacé par Observable - Observer
 	
 	//Tests bille attrapable
-	//cadre.getBillard().addMouseListener(écouteurBille);
-	//cadre.getBillard().addMouseMotionListener(écouteurBille);
+	cadre.getBillard().addMouseListener(écouteurBille);
+	cadre.getBillard().addMouseMotionListener(écouteurBille);
 	
 
 

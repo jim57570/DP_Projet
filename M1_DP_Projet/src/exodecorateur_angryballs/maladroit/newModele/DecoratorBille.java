@@ -40,8 +40,8 @@ public abstract class DecoratorBille extends Bille {
 	}
 
 	@Override
-	public void setVitesse() {
-		this.billeDecorated.setVitesse();
+	public void setVitesse(Vecteur vitesse) {
+		this.billeDecorated.setVitesse(vitesse);
 	}
 	@Override
 	public Vecteur getVitesse() {

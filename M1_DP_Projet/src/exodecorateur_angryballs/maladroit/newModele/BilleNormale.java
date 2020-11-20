@@ -86,8 +86,8 @@ public class BilleNormale extends Bille {
 		return this.vitesse;
 	}
 	
-	public void setVitesse() {
-		this.vitesse = Vecteur.VECTEURNUL;
+	public void setVitesse(Vecteur vitesse) {
+		this.vitesse = vitesse;
 	}
 
 	/**
