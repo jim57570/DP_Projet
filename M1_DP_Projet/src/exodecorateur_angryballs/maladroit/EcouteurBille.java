@@ -3,8 +3,8 @@ package exodecorateur_angryballs.maladroit;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
-
 import exodecorateur_angryballs.maladroit.newModele.Bille;
+import exodecorateur_angryballs.maladroit.vues.CadreAngryBalls;
 import mesmaths.geometrie.base.Vecteur;
 
 public class EcouteurBille implements MouseListener, MouseMotionListener {
@@ -13,20 +13,29 @@ public class EcouteurBille implements MouseListener, MouseMotionListener {
 	Bille billeSélectionné;
 	
 	AnimationBilles animationBilles;
+	//CadreAngryBalls cadre;
 	
 	BilleDragged billeDragged;
 	BilleReleased billeReleased;
 	BillePressed billePressed;
+	BilleFocused billeFocused;
+	
+	//Vector<Vecteur> mousePosition = new Vector<Vecteur>();
+	Vecteur mousePosition;
+	int temps = 200; //millisecondes
 
-	public EcouteurBille(AnimationBilles animationBilles){
+
+	public EcouteurBille(AnimationBilles animationBilles, CadreAngryBalls cadre){
 		this.animationBilles = animationBilles;
+		//this.cadre = cadre;
 		
 		this.billeDragged = new BilleDragged(this, null, null);
 		this.billePressed = new BillePressed(this, this.billeDragged, null);
+		//this.billeFocused = new BilleFocused(this, this.billePressed, null);
 		this.billeReleased = new BilleReleased(this, this.billePressed, null);
 		
 		this.billeDragged.suivant = this.billeReleased;
-		this.etatBille = billePressed;
+		this.etatBille = billePressed /*billeFocused*/;
 	}
 	
 	@Override
@@ -55,7 +64,7 @@ public class EcouteurBille implements MouseListener, MouseMotionListener {
 
 	@Override
 	public void mouseMoved(MouseEvent arg0) {
-		// TODO Auto-generated method stub
+		//this.etatBille.doAction(arg0);
 		
 	}
 

@@ -60,6 +60,7 @@ public class NewTestAngryBalls {
 	
 	Bille billeRouge = new BilleNormale(p0, rayon, v0, Color.red); //création d'une bille normale rouge
 	billeRouge = new CollisionRebond(billeRouge); //on décore cette bille avec la collision rebond
+	billeRouge = new BillePilotée(billeRouge); //on déclare une bille pilotable
 	
 	Bille billeJaune = new BilleNormale(p1, rayon, v1, Color.yellow);
 	billeJaune = new AccelPesanteur(billeJaune, new Vecteur(0, 0.001));
@@ -80,9 +81,9 @@ public class NewTestAngryBalls {
 	
 	//on ajoute les billes à la liste
 	billes.add(billeRouge);
-	billes.add(billeJaune);
-	/*billes.add(billeVerte);
-	billes.add(billeBleue);
+	//billes.add(billeJaune);
+	billes.add(billeVerte);
+	/*billes.add(billeBleue);
 	billes.add(billeNoire);*/
 	
 	//---------------------- ici finit la partie à changer -------------------------------------------------------------
@@ -100,7 +101,7 @@ public class NewTestAngryBalls {
 	EcouteurBoutonLancer écouteurBoutonLancer = new EcouteurBoutonLancer(animationBilles);
 	EcouteurBoutonArreter écouteurBoutonArrêter = new EcouteurBoutonArreter(animationBilles);
 	
-	EcouteurBille écouteurBille = new EcouteurBille(animationBilles);
+	EcouteurBille écouteurBille = new EcouteurBille(animationBilles, cadre);
 
 	//------------------------- activation des écouteurs des boutons et ça tourne tout seul ------------------------------
 

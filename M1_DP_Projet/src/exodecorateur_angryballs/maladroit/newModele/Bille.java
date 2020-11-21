@@ -57,10 +57,7 @@ public abstract class Bille {
 	 * @return true si il y a collision et dans ce cas les positions et vecteurs vitesses des 2 billes impliquées dans le choc sont modifiées
 	 * si renvoie false, il n'y a pas de collision et les billes sont laissées intactes 
 	 * */
-	public boolean gestionCollisionBilleBille(Vector<Bille> billes) {
-		//TODO adapter classe OutilsBille pour la nouvelle classe bille
-		return OutilsBille.gestionCollisionBilleBille(this, billes);
-	}
+	public abstract boolean gestionCollisionBilleBille(Vector<Bille> billes);
 	
 	public abstract void dessine(Graphics g);
 	

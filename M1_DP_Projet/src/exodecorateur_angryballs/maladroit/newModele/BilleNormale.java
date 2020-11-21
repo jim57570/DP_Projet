@@ -140,9 +140,12 @@ public class BilleNormale extends Bille {
     }
 
 	@Override
-	public void collisionContour(double abscisseCoinHautGauche, double ordonnéeCoinHautGauche, double largeur,
-			double hauteur) {
+	public void collisionContour(double abscisseCoinHautGauche, double ordonnéeCoinHautGauche, double largeur, double hauteur) {
 		// TODO Auto-generated method stub
-		
+	}
+
+	@Override
+	public boolean gestionCollisionBilleBille(Vector<Bille> billes) {
+		return OutilsBille.gestionCollisionBilleBille(this, billes);
 	}
 }

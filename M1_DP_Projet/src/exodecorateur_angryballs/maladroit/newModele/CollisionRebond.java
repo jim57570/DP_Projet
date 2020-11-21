@@ -1,7 +1,5 @@
 package exodecorateur_angryballs.maladroit.newModele;
 
-import java.util.Vector;
-
 import mesmaths.cinematique.Collisions;
 
 /**
@@ -10,16 +8,11 @@ import mesmaths.cinematique.Collisions;
  * @author Jimmy
  *
  */
-public class CollisionRebond extends DecoratorBille {
+public class CollisionRebond extends Collision {
 
 	public CollisionRebond(Bille billeDecorated) {
 		super(billeDecorated);
 		// TODO Auto-generated constructor stub
-	}
-
-	@Override
-	public void gestionAccélération(Vector<Bille> billes) {
-		this.billeDecorated.gestionAccélération(billes);
 	}
 
 	@Override

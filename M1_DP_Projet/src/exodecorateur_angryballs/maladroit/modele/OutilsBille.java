@@ -3,6 +3,7 @@ package exodecorateur_angryballs.maladroit.modele;
 import java.util.Vector;
 
 import exodecorateur_angryballs.maladroit.newModele.Bille; //import modifié pour inclure notre nouvelle classe bille (se situe dans un package différent)
+import exodecorateur_angryballs.maladroit.newModele.BillePilotée;
 import mesmaths.cinematique.Collisions;
 import mesmaths.geometrie.base.Vecteur;
 import mesmaths.mecanique.MecaniquePoint;
@@ -72,9 +73,15 @@ public class OutilsBille
 		for ( i = 0 ; i < autresBilles.size(); ++i)
 		{
 			billeCourante = autresBilles.get(i);
-			if (Collisions.CollisionBilleBille(    bille.getPosition(),    bille.getRayon(),    bille.getVitesse(),    bille.masse(), 
-					billeCourante.getPosition(), billeCourante.getRayon(), billeCourante.getVitesse(), billeCourante.masse()))
-				return true; 
+			/*************************************************************/
+			if(billeCourante instanceof BillePilotée && ((BillePilotée)billeCourante).getEstPilotée() == true) {
+				
+			}else {
+				/*************************************************************/
+				if (Collisions.CollisionBilleBille(    bille.getPosition(),    bille.getRayon(),    bille.getVitesse(),    bille.masse(), 
+						billeCourante.getPosition(), billeCourante.getRayon(), billeCourante.getVitesse(), billeCourante.masse()))
+					return true; 
+			}
 		}
 		return false;
 	}

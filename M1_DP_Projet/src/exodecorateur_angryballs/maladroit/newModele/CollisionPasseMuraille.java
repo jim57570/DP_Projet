@@ -1,6 +1,5 @@
 package exodecorateur_angryballs.maladroit.newModele;
 
-import java.util.Vector;
 
 import mesmaths.cinematique.Collisions;
 
@@ -10,15 +9,10 @@ import mesmaths.cinematique.Collisions;
  * @author Jimmy
  *
  */
-public class CollisionPasseMuraille extends DecoratorBille {
+public class CollisionPasseMuraille extends Collision {
 
 	public CollisionPasseMuraille(Bille billeDecorated) {
 		super(billeDecorated);
-	}
-
-	@Override
-	public void gestionAccélération(Vector<Bille> billes) {
-		this.billeDecorated.gestionAccélération(billes);
 	}
 
 	@Override

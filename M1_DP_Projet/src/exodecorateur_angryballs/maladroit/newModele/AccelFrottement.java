@@ -10,7 +10,7 @@ import mesmaths.mecanique.MecaniquePoint;
  * @author Jimmy
  *
  */
-public class AccelFrottement extends DecoratorBille {
+public class AccelFrottement extends Acceleration {
 
 	public AccelFrottement(Bille billeDecorated) {
 		super(billeDecorated);
@@ -21,11 +21,6 @@ public class AccelFrottement extends DecoratorBille {
 	public void gestionAccélération(Vector<Bille> billes) {
 		this.billeDecorated.gestionAccélération(billes);	//remise à zéro du vecteur accélération
 		this.billeDecorated.getAccélération().ajoute(MecaniquePoint.freinageFrottement(this.masse(), this.getVitesse()));      // contribution de l'accélération due au frottement dans l'air
-	}
-
-	@Override
-	public void collisionContour(double abscisseCointHautGauche, double ordonnéeCointHautGauche, double largeur, double hauteur) {
-		this.billeDecorated.collisionContour(abscisseCointHautGauche, ordonnéeCointHautGauche, largeur, hauteur);
 	}
 
 }

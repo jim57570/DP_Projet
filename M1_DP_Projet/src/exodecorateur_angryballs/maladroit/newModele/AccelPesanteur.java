@@ -10,7 +10,7 @@ import mesmaths.geometrie.base.Vecteur;
  * @author Jimmy
  *
  */
-public class AccelPesanteur extends DecoratorBille {
+public class AccelPesanteur extends Acceleration {
 	
 	Vecteur pesanteur;
 
@@ -23,11 +23,6 @@ public class AccelPesanteur extends DecoratorBille {
 	public void gestionAccélération(Vector<Bille> billes) {
 		this.billeDecorated.gestionAccélération(billes); //remise à zéro du vecteur accélération
 		this.getAccélération().ajoute(this.pesanteur);          // contribution du champ de pesanteur (par exemple)
-	}
-
-	@Override
-	public void collisionContour(double abscisseCointHautGauche, double ordonnéeCointHautGauche, double largeur, double hauteur) {
-		this.billeDecorated.collisionContour(abscisseCointHautGauche, ordonnéeCointHautGauche, largeur, hauteur);
 	}
 
 }

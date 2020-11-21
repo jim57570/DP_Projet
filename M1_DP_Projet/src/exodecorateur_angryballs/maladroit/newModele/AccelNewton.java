@@ -10,7 +10,7 @@ import exodecorateur_angryballs.maladroit.modele.OutilsBille;
  * @author Jimmy
  *
  */
-public class AccelNewton extends DecoratorBille {
+public class AccelNewton extends Acceleration {
 
 	public AccelNewton(Bille billeDecorated) {
 		super(billeDecorated);
@@ -21,11 +21,6 @@ public class AccelNewton extends DecoratorBille {
 	public void gestionAccélération(Vector<Bille> billes) {
 		this.billeDecorated.gestionAccélération(billes); //remise à zéro du vecteur accélération
 		this.billeDecorated.getAccélération().ajoute(OutilsBille.gestionAccélérationNewton(this.billeDecorated, billes)); //contribution de l'accélération due à l'attraction des autres billes
-	}
-
-	@Override
-	public void collisionContour(double abscisseCointHautGauche, double ordonnéeCointHautGauche, double largeur, double hauteur) {
-		this.billeDecorated.collisionContour(abscisseCointHautGauche, ordonnéeCointHautGauche, largeur, hauteur);
 	}
 
 }
