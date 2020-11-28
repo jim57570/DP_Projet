@@ -17,6 +17,7 @@ import outilsvues.Outils;
  *  
  * 
  * */
+@SuppressWarnings("serial")
 public class CadreAngryBalls extends Frame implements VueBillard
 {
 	TextField présentation;

@@ -1,12 +1,11 @@
 package exodecorateur_angryballs.maladroit.modele;
 
 import java.util.Vector;
-
 import exodecorateur_angryballs.maladroit.newModele.Bille; //import modifié pour inclure notre nouvelle classe bille (se situe dans un package différent)
-import exodecorateur_angryballs.maladroit.newModele.BillePilotée;
 import mesmaths.cinematique.Collisions;
 import mesmaths.geometrie.base.Vecteur;
 import mesmaths.mecanique.MecaniquePoint;
+
 
 /**
  * 
@@ -19,6 +18,7 @@ import mesmaths.mecanique.MecaniquePoint;
 
 public class OutilsBille
 {
+	
 	/**
 	 * @param billes est la liste de TOUTES les billes en mouvement
 	 * @param cetteBille est l'une d'entre elles.
@@ -57,7 +57,7 @@ public class OutilsBille
 	 * @return true si il y a collision et dans ce cas les positions et vecteurs vitesses des 2 billes impliquées dans le choc sont modifiées
 	 * si renvoie false, il n'y a pas de collision et les billes sont laissées intactes 
 	 * */
-	public static  boolean gestionCollisionBilleBille(Bille bille, Vector<Bille> billes)
+	public static boolean gestionCollisionBilleBille(Bille bille, Vector<Bille> billes)
 	{
 		//--- on récupère d'abord dans autresBilles toutes les billes sauf cetteBille ----
 
@@ -72,15 +72,10 @@ public class OutilsBille
 
 		for ( i = 0 ; i < autresBilles.size(); ++i)
 		{
-			billeCourante = autresBilles.get(i);
-			/*************************************************************/
-			if(billeCourante instanceof BillePilotée && ((BillePilotée)billeCourante).getEstPilotée() == true) {
-				
-			}else {
-				/*************************************************************/
-				if (Collisions.CollisionBilleBille(    bille.getPosition(),    bille.getRayon(),    bille.getVitesse(),    bille.masse(), 
-						billeCourante.getPosition(), billeCourante.getRayon(), billeCourante.getVitesse(), billeCourante.masse()))
-					return true; 
+			billeCourante = autresBilles.get(i);			
+			if (Collisions.CollisionBilleBille(    bille.getPosition(),    bille.getRayon(),    bille.getVitesse(),    bille.masse(), 
+					billeCourante.getPosition(), billeCourante.getRayon(), billeCourante.getVitesse(), billeCourante.masse())) {
+				return true; 
 			}
 		}
 		return false;

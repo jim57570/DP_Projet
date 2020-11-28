@@ -1,5 +1,6 @@
 package exodecorateur_angryballs.maladroit.newModele;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Vector;
 
@@ -27,12 +28,6 @@ public abstract class DecoratorBille extends Bille {
 		return this.billeDecorated.getPosition(); // par défaut la position du décorateur de l'objet est le même que la position de l'objet décoré
 		//cette méthode est donc récursive. Le cas terminal est le cas du dernier maillon : l'objet ordinaire
 	}
-	
-	@Override
-	public void setPosition(Vecteur position)
-	{
-		this.billeDecorated.setPosition(position);
-	}
 
 	@Override
 	public double getRayon() {
@@ -40,8 +35,8 @@ public abstract class DecoratorBille extends Bille {
 	}
 
 	@Override
-	public void setVitesse(Vecteur vitesse) {
-		this.billeDecorated.setVitesse(vitesse);
+	public void setAccélération(Vecteur accélération) {
+		this.billeDecorated.setAccélération(accélération);
 	}
 	@Override
 	public Vecteur getVitesse() {
@@ -61,6 +56,16 @@ public abstract class DecoratorBille extends Bille {
 	@Override
 	public double masse() {
 		return this.billeDecorated.masse();
+	}
+	
+	@Override
+	public Color getHaloColor() {
+		return this.billeDecorated.getHaloColor();
+	}
+	
+	@Override
+	public void setHaloColor(Color haloColor) {
+		this.billeDecorated.setHaloColor(haloColor);
 	}
 
 	/**

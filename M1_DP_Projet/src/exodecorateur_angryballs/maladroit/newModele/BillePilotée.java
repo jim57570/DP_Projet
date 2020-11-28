@@ -3,10 +3,11 @@ package exodecorateur_angryballs.maladroit.newModele;
 import java.util.Vector;
 
 import exodecorateur_angryballs.maladroit.modele.OutilsBille;
+import mesmaths.geometrie.base.Vecteur;
 
 public class BillePilotée extends DecoratorBille{
-	
-	private boolean estPilotée = false;
+		
+	private Vecteur mousePosition = Vecteur.VECTEURNUL;
 
 	public BillePilotée(Bille billeDecorated) {
 		super(billeDecorated);
@@ -15,28 +16,24 @@ public class BillePilotée extends DecoratorBille{
 	@Override
 	public void gestionAccélération(Vector<Bille> billes) {
 		this.billeDecorated.gestionAccélération(billes);
+		this.billeDecorated.getAccélération().ajoute(this.mousePosition);
 	}
 
 	@Override
 	public void collisionContour(double abscisseCointHautGauche, double ordonnéeCointHautGauche, double largeur, double hauteur) {
 		this.billeDecorated.collisionContour(abscisseCointHautGauche, ordonnéeCointHautGauche, largeur, hauteur);
 	}
-	
-	public boolean getEstPilotée() {
-		return estPilotée;
-	}
-
-	public void setEstPilotée(boolean estPilotée) {
-		this.estPilotée = estPilotée;
-	}
 
 	@Override
 	public boolean gestionCollisionBilleBille(Vector<Bille> billes) {
-		if(this.estPilotée) {
-			return false;
-		}
-		else {
-			return OutilsBille.gestionCollisionBilleBille(this, billes);
-		}
+		return OutilsBille.gestionCollisionBilleBille(this, billes);
+	}
+
+	public Vecteur getMousePosition() {
+		return mousePosition;
+	}
+
+	public void setMousePosition(Vecteur mousePosition) {
+		this.mousePosition = mousePosition;
 	}
 }

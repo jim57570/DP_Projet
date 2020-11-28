@@ -3,10 +3,7 @@ package exodecorateur_angryballs.maladroit.newModele;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Vector;
-
-import exodecorateur_angryballs.maladroit.modele.OutilsBille;
 import mesmaths.cinematique.Cinematique;
-import mesmaths.geometrie.base.Geop;
 import mesmaths.geometrie.base.Vecteur;
 
 /**
@@ -18,12 +15,14 @@ import mesmaths.geometrie.base.Vecteur;
 public abstract class Bille {
 	
 	public abstract Vecteur getPosition();
-	public abstract void setPosition(Vecteur position);
 	public abstract double getRayon();
 	public abstract Vecteur getVitesse();
-	public abstract void setVitesse(Vecteur vitesse);
+	public abstract void setAccélération(Vecteur accélération); 
 	public abstract Vecteur getAccélération();
 	public abstract int getClef();
+	
+	public abstract Color getHaloColor();
+	public abstract void setHaloColor(Color haloColor);
 	
 	public abstract double masse();
 

@@ -3,10 +3,7 @@ package exodecorateur_angryballs.maladroit.newModele;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Vector;
-
-import exodecorateur_angryballs.maladroit.newModele.Bille;
 import exodecorateur_angryballs.maladroit.modele.OutilsBille;
-import mesmaths.cinematique.Cinematique;
 import mesmaths.geometrie.base.Geop;
 import mesmaths.geometrie.base.Vecteur;
 
@@ -24,6 +21,15 @@ public class BilleNormale extends Bille {
 	public int clef;                // identifiant unique de cette bille
 
 	private Color couleur;
+	private Color haloColor = Color.CYAN;
+
+	public Color getHaloColor() {
+		return haloColor;
+	}
+
+	public void setHaloColor(Color haloColor) {
+		this.haloColor = haloColor;
+	}
 
 	private static int prochaineClef = 0;
 
@@ -131,8 +137,9 @@ public class BilleNormale extends Bille {
 	
 	    g.setColor(couleur);
 	    g.fillOval( xMin, yMin, width, height);
-	    g.setColor(Color.CYAN);
+	    g.setColor(haloColor);
 	    g.drawOval(xMin, yMin, width, height);
+	    
     }
 	
 	public String toString()  {
@@ -147,5 +154,11 @@ public class BilleNormale extends Bille {
 	@Override
 	public boolean gestionCollisionBilleBille(Vector<Bille> billes) {
 		return OutilsBille.gestionCollisionBilleBille(this, billes);
+	}
+
+	@Override
+	public void setAccélération(Vecteur accélération) {
+		this.accélération = accélération;
+		
 	}
 }

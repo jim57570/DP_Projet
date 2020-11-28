@@ -14,6 +14,7 @@ import exodecorateur_angryballs.maladroit.newModele.Bille;
  *  
  * 
  * */
+@SuppressWarnings("serial")
 public class Billard extends Canvas
 {
 	Vector<Bille> billes;

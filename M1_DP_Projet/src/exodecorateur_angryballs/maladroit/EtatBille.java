@@ -11,8 +11,12 @@ public abstract class EtatBille {
 		super();
 		this.ecouteurBille = ecouteurBille;
 		this.suivant = suivant;
-		this.retour = retour;
+		//this.retour = retour;
 	}
 
-	public abstract void doAction(MouseEvent arg0);
+	protected abstract void pressed(MouseEvent arg0);
+	protected abstract void dragged(MouseEvent arg0);
+	protected abstract void released(MouseEvent arg0);
+
+	protected abstract void moved(MouseEvent arg0);
 }

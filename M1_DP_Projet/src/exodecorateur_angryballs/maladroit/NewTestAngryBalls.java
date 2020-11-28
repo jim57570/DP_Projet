@@ -60,17 +60,21 @@ public class NewTestAngryBalls {
 	
 	Bille billeRouge = new BilleNormale(p0, rayon, v0, Color.red); //création d'une bille normale rouge
 	billeRouge = new CollisionRebond(billeRouge); //on décore cette bille avec la collision rebond
+	
+	billeRouge = new AccelNewton(billeRouge);
 	billeRouge = new BillePilotée(billeRouge); //on déclare une bille pilotable
 	
 	Bille billeJaune = new BilleNormale(p1, rayon, v1, Color.yellow);
 	billeJaune = new AccelPesanteur(billeJaune, new Vecteur(0, 0.001));
 	billeJaune = new AccelFrottement(billeJaune);
 	billeJaune = new CollisionRebond(billeJaune);
+	billeJaune = new BillePilotée(billeJaune);
 	
 	Bille billeVerte = new BilleNormale(p2, rayon, v2, Color.green);
 	billeVerte = new AccelNewton(billeVerte);
 	billeVerte = new AccelFrottement(billeVerte);
 	billeVerte = new CollisionRebond(billeVerte);
+	billeVerte = new BillePilotée(billeVerte);
 	
 	Bille billeBleue = new BilleNormale(p3, rayon, v3, Color.cyan);
 	billeBleue = new CollisionPasseMuraille(billeBleue);
@@ -79,12 +83,11 @@ public class NewTestAngryBalls {
 	billeNoire = new AccelNewton(billeNoire); //on décore cette bille avec l'attraction due à la force de newton
 	billeNoire = new CollisionBloque(billeNoire); //on la décore également avec la collision bloquée
 	
-	//on ajoute les billes à la liste
-	billes.add(billeRouge);
-	//billes.add(billeJaune);
 	billes.add(billeVerte);
-	/*billes.add(billeBleue);
-	billes.add(billeNoire);*/
+	billes.add(billeJaune);
+	
+	billes.add(billeBleue);
+	billes.add(billeNoire);
 	
 	//---------------------- ici finit la partie à changer -------------------------------------------------------------
 
@@ -113,9 +116,6 @@ public class NewTestAngryBalls {
 	cadre.getBillard().addMouseListener(écouteurBille);
 	cadre.getBillard().addMouseMotionListener(écouteurBille);
 	
-
-
-
 
 	}
 

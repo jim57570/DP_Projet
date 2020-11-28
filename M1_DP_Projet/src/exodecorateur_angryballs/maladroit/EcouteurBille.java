@@ -5,7 +5,6 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import exodecorateur_angryballs.maladroit.newModele.Bille;
 import exodecorateur_angryballs.maladroit.vues.CadreAngryBalls;
-import mesmaths.geometrie.base.Vecteur;
 
 public class EcouteurBille implements MouseListener, MouseMotionListener {
 	
@@ -13,44 +12,39 @@ public class EcouteurBille implements MouseListener, MouseMotionListener {
 	Bille billeSélectionné;
 	
 	AnimationBilles animationBilles;
-	//CadreAngryBalls cadre;
 	
-	BilleDragged billeDragged;
-	BilleReleased billeReleased;
-	BillePressed billePressed;
-	BilleFocused billeFocused;
+	DéplacementBille déplacementBille;
+	AttenteSélectionBille attenteSélectionBille;
 	
-	//Vector<Vecteur> mousePosition = new Vector<Vecteur>();
-	Vecteur mousePosition;
-	int temps = 200; //millisecondes
-
-
+	
 	public EcouteurBille(AnimationBilles animationBilles, CadreAngryBalls cadre){
 		this.animationBilles = animationBilles;
-		//this.cadre = cadre;
 		
-		this.billeDragged = new BilleDragged(this, null, null);
-		this.billePressed = new BillePressed(this, this.billeDragged, null);
-		//this.billeFocused = new BilleFocused(this, this.billePressed, null);
-		this.billeReleased = new BilleReleased(this, this.billePressed, null);
+		this.déplacementBille = new DéplacementBille(this, null, null);
+		this.attenteSélectionBille = new AttenteSélectionBille(this, this.déplacementBille, null);
 		
-		this.billeDragged.suivant = this.billeReleased;
-		this.etatBille = billePressed /*billeFocused*/;
+		this.déplacementBille.suivant = this.attenteSélectionBille;
+		this.etatBille = attenteSélectionBille;
 	}
 	
 	@Override
 	public void mousePressed(MouseEvent arg0) {
-		this.etatBille.doAction(arg0);		
+		this.etatBille.pressed(arg0);		
 	}
 
 
 	public void mouseDragged(MouseEvent arg0) {
-		this.etatBille.doAction(arg0);
+		this.etatBille.dragged(arg0);
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent arg0) {
-		this.etatBille.doAction(arg0);		
+		this.etatBille.released(arg0);		
+	}
+	
+	@Override
+	public void mouseMoved(MouseEvent arg0) {
+		this.etatBille.moved(arg0);
 	}
 
 	
@@ -62,11 +56,7 @@ public class EcouteurBille implements MouseListener, MouseMotionListener {
 		return this.etatBille;
 	}
 
-	@Override
-	public void mouseMoved(MouseEvent arg0) {
-		//this.etatBille.doAction(arg0);
-		
-	}
+	
 
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
