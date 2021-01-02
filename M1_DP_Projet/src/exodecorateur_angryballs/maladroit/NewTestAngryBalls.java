@@ -85,7 +85,6 @@ public class NewTestAngryBalls {
 	
 	billes.add(billeVerte);
 	billes.add(billeJaune);
-	
 	billes.add(billeBleue);
 	billes.add(billeNoire);
 	
@@ -115,8 +114,7 @@ public class NewTestAngryBalls {
 	//Tests bille attrapable
 	cadre.getBillard().addMouseListener(écouteurBille);
 	cadre.getBillard().addMouseMotionListener(écouteurBille);
-	
-
+		
+		
 	}
-
 }
