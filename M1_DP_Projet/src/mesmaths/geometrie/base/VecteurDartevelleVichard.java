@@ -1,5 +1,10 @@
 package mesmaths.geometrie.base;
 
+
+/**
+ * Redéfinition de la classe Vecteur
+ *
+ */
 public class VecteurDartevelleVichard extends Vecteur{
 	/**
 	 * 
