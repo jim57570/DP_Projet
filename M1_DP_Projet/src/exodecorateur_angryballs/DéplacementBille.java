@@ -6,6 +6,10 @@ import java.awt.event.MouseEvent;
 import exodecorateur_angryballs.modele.BillePilotée;
 import mesmaths.geometrie.base.Vecteur;
 
+/**
+ * Etat dans lequel on maintient le clic enfonce et on deplace la bille
+ *
+ */
 public class DéplacementBille extends EtatBille{
 	Vecteur mousePosition;
 	Vecteur accélération;

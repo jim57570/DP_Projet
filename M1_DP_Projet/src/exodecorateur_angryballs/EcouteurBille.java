@@ -7,6 +7,10 @@ import java.awt.event.MouseMotionListener;
 import exodecorateur_angryballs.modele.Bille;
 import exodecorateur_angryballs.vues.CadreAngryBalls;
 
+/**
+ * Controleur général pour la mise en place du DP state
+ *
+ */
 public class EcouteurBille implements MouseListener, MouseMotionListener {
 	
 	EtatBille etatBille;	

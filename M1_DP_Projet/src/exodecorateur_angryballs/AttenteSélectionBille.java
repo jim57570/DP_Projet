@@ -7,6 +7,10 @@ import java.awt.event.MouseEvent;
 import exodecorateur_angryballs.modele.BillePilotée;
 import mesmaths.geometrie.base.VecteurDartevelleVichard;
 
+/**
+ * Etat dans lequel on attend de cliquer sur bille
+ *
+ */
 public class AttenteSélectionBille extends EtatBille{
 	
 	Cursor c = new Cursor(Cursor.HAND_CURSOR);
